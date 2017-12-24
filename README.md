@@ -5,7 +5,9 @@ Swift 不停在改进 ❤️。然而目前，对于中大型项目而言，漫�
 
 👷🏻 维护者：[Arek Holko](https://twitter.com/arekholko). 少了什么? 欢迎提 Issues 或者 PR!
 
-（翻译：[Yuen](https://weibo.com/rxg9527)，如果对翻译质量存疑，欢迎提出问题建议）
+（[原文版本](https://github.com/rxg9527/Optimizing-Swift-Build-Times/blob/master/README-Original.md)：Commits on Dec 11, 2017 ce6da1f3a47220259c3924df62f44f06bc45e222
+
+翻译：[Yuen](https://weibo.com/rxg9527)，[博客地址](https://www.jianshu.com/u/ab8910e71437)。如果对翻译质量存疑，欢迎提出问题建议）
 
 ## Table of Contents
 
