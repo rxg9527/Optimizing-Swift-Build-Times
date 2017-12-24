@@ -218,6 +218,7 @@ Swift 的增量编译并不完美。有时一些增量编译中，也许仅仅�
 在 Xcode 9 苹果 [介绍了一种新的 Xcode 编译系统](https://developer.apple.com/library/content/releasenotes/DeveloperTools/RN-Xcode/Chapters/Introduction.html#//apple_ref/doc/uid/TP40001051-CH1-SW878). 这还只是“预览”版本，默认并没有开启。这个新系统比默认的原有的编译系统快的多。
 如果想要使用它，到 Xcode 的 `File` 菜单进入`Workspace 或 Project Settings` 的页面，就可以切换到新的编译系统了。
 ![](http://o7y6vb76p.bkt.clouddn.com/2017-12-24-15140594214374.jpg)
+
 📖 Sources:
 
 * [Faster Swift Builds with the New Xcode Build System](https://github.com/quellish/XcodeNewBuildSystem)
