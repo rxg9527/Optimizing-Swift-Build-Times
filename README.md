@@ -39,12 +39,18 @@ Swift 不停在改进 ❤️。然而目前，对于中大型项目而言，漫�
 编译后会看到如下图所示的场景：
 ![](http://o7y6vb76p.bkt.clouddn.com/2017-12-24-15140539609818.jpg)
 
+
 📖 Sources:
 
 * [Guarding Against Long Compiles](http://khanlou.com/2016/12/guarding-against-long-compiles/)
 * [Measuring Swift compile times in Xcode 9 · Jesse Squires](https://www.jessesquires.com/blog/measuring-compile-times-xcode9/)
 * [Improving Swift compile times — Swift by Sundell](https://www.swiftbysundell.com/posts/improving-swift-compile-times)
 * [Swift build time optimizations — Part 2](https://medium.com/swift-programming/swift-build-time-optimizations-part-2-37b0a7514cbe)
+
+📖 私货：
+
+[深度剖析 Swift 编译与运行时的类型检查 \- iOS \- 掘金](https://juejin.im/entry/5767a62a80dda4005f9e97ca?utm_source=gold-miner&utm_medium=readme&utm_campaign=github)
+
 
 ## 2、编译缓慢的那些文件（Slowly compiling files）
 上一段针对的是函数级别和表达式级别，现在我们关注整个文件的编译时间 
@@ -105,7 +111,7 @@ awk '/Driver Compilation Time/,/Total$/ { print }' profile.log | \
 
 * [Speeding up Development Build Times With Conditional dSYM Generation](http://holko.pl/2016/10/18/dsym-debug/)
 
-## 5、Module 优化（Whole Module Optimization）
+## 5、全模块优化（Whole Module Optimization）
 另一个公认的方法是
 
 * 修改 Debug 配置 `Build Settings`  --> `Optimization Level` 为 `Fast, Whole Module Optimization` 
@@ -125,6 +131,9 @@ awk '/Driver Compilation Time/,/Total$/ { print }' profile.log | \
 * [Developear - Speeding Up Compile Times of Swift Projects](http://developear.com/blog/2016/12/30/Speed-Swift-Compilation.html)
 * [Slava Pestov on Twitter: “@iamkevb It runs one compiler job with all source files in a module instead of one job per source file”](https://twitter.com/slava_pestov/status/911747257103302656)
 
+📖 私货：
+
+* [\[译\] Swift 3 语言中的全模块优化 \- iOS \- 掘金](https://juejin.im/entry/5818b6f52f301e005cf0ef8e)
 
 ## 6、CocoaPods 的 Module 优化（Whole Module Optimization for CocoaPods）
 如果使用 CocoaPods 的话，上一步 WMO 的配置也要考虑放到使用的 CocoaPods 项目中。
@@ -161,7 +170,7 @@ Carthage 虽然难用一些，但当你很在意编译时间的话却不失为�
 ## 8、模块化（Modularization）
 Swift 的增量编译并不完美。有时一些增量编译中，也许仅仅是修改了一个字符串，就会导致整个项目重新编译。这是一个亟待解决的问题。
 
-为了避免这个问题，你可以考虑将 app 拆分为一个个模块。在 iOS 里，有2中方案：动态库和静态库（Xcode9 Beta4 版本开始支持 Swift 静态库）。
+为了避免这个问题，你可以考虑将 app 拆分为一个个模块。在 iOS 里，有2种方案：动态库和静态库（Xcode9 Beta4 版本开始支持 Swift 静态库）。
 
 假设你的 app 依赖一个叫做 `DatabaseKit` 的内部 framework。模块化的方法能够保证在你对 app 项目做了一些修改时，`DatabaseKit` 不会因为这个增量编译的行为而重新编译。
 
@@ -176,7 +185,7 @@ Swift 的增量编译并不完美。有时一些增量编译中，也许仅仅�
 
 📖 Sources:
 
-* [(…) in a large project incremental build is much faster if only a .xib was changed (vs. only a line of Swift UI code)](https://twitter.com/MichalCiuba/status/925326831074643968)
+* [Michał Ciuba on Twitter: "@arekholko I don't know, but in a large project incremental build is much faster if only a \.xib was changed \(vs\. only a line of Swift UI code\)"](https://twitter.com/MichalCiuba/status/925326831074643968)
 
 
 ## 10、Xcode Schemes
@@ -187,6 +196,7 @@ Swift 的增量编译并不完美。有时一些增量编译中，也许仅仅�
 * `AppUITests`
 
 只在一个 scheme 上工作没有问题，但是我们还可以优化。下方的配置是我们一直在使用的，包了3个 scheme：
+
 
 ### App
 
@@ -211,6 +221,10 @@ Swift 的增量编译并不完美。有时一些增量编译中，也许仅仅�
 📖 Sources:
 
 * [All About Schemes](http://pilky.me/17/)
+
+📖 私货：
+
+[使用 Xcode 的 Scheme 来跑不同的测试集合 \- iOS \- 掘金](https://juejin.im/entry/5723223f71cfe400575f4528?utm_source=gold-miner&utm_medium=readme&utm_campaign=github)
 
 
 ## 11、使用全新的 Xcode 编译系统（Use the new Xcode build system）
